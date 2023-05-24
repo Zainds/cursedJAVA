@@ -32,13 +32,12 @@ public class Main {
         }
         catch (final Exception e)
         {
-            //  Handle any exceptions.
+            System.out.print(e.getMessage());
         }
     }
     static String[] days = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница"};
 
     static class WorkshopBuilder {
-
 
         private String name;
         private String workshopName;
@@ -84,12 +83,10 @@ public class Main {
             }
             System.out.print("ФИО: " + name + " \t " + days[day] + " " + details + " д" + "\n");
         }
-
     };
 
     public static void updateInputFile(List<WorkshopBuilder> workers) throws FileNotFoundException {
 
-        //ofstream fout("input.txt");
         try(FileWriter writer = new FileWriter("input.txt", false))
         {
             for (int i = 0; i < workers.size(); i++) {
@@ -105,7 +102,6 @@ public class Main {
 
             System.out.println(ex.getMessage());
         }
-
     }
 
     public static void readWorkersFromConsole(List<WorkshopBuilder> workers) throws FileNotFoundException {
@@ -119,14 +115,10 @@ public class Main {
         int[] detailsCreated = new int[5];
         System.out.print("Введите количество рабочих: "); count = console.nextInt();
 
-
-
         for (int k = 0; k < count; k++) {
 
             System.out.print("Введите имя: "); name = console1.nextLine();
-            //console.nextLine();
             System.out.print("Введите цех: "); workshopName = console2.nextLine();
-
             System.out.print("Введите количество деталей по дням(через пробел) : ");
 
             for (int i = 0; i < 5; i++) {
@@ -163,11 +155,9 @@ public class Main {
                     if (spaceCounter >= 4) {
                         if (line.charAt(i) != ' ') {
                             mynum += line.charAt(i);
-
                         }
                         else {
                             if (spaceCounter != 4) {
-
                                 dArr[arrPos] = Integer.parseInt(mynum);
                                 arrPos++;
                                 mynum = "";
@@ -185,8 +175,6 @@ public class Main {
             readWorkersFromConsole(workers);
             e.printStackTrace();
         }
-
-
     }
 
     public static void writeWorkersFromFile(List<WorkshopBuilder> workers) {
@@ -204,8 +192,6 @@ public class Main {
 
             System.out.println(ex.getMessage());
         }
-
-
     }
     public static void printAllBuilders(List<WorkshopBuilder> workers) {
         for (WorkshopBuilder x : workers) {
@@ -261,7 +247,6 @@ public class Main {
 
             System.out.println(ex.getMessage());
         }
-
     }
 
     public static void deleteWorkerByFio(List<WorkshopBuilder> workers) throws FileNotFoundException {
@@ -284,7 +269,6 @@ public class Main {
             System.out.print("Рабочий не найден\n");
             pressEnterToContinue();
         }
-
     }
     public static void renameWorkerWorkshopByFio(List<WorkshopBuilder> workers) throws FileNotFoundException {
         int flag = 0;
@@ -314,7 +298,6 @@ public class Main {
                         "1. Считать содержимое из файла\n" +
                         "2. Заполнить рабочих через консоль\n");
             }
-
             else {
                 System.out.print("\n" +
                         "3. Выдать на экран содержимое файла\n" +
@@ -325,7 +308,6 @@ public class Main {
                         "8. Изменить цех у определённого рабочего\n" +
                         "н. Назад\n" +
                         "в. Выход\n");
-
             }
 
             Scanner scanner = new Scanner(System.in);
@@ -379,12 +361,10 @@ public class Main {
                     break;
             }
         }
-
     }
     public static void main(String[] args) throws IOException {
 
         List<WorkshopBuilder> workers = new ArrayList<>(); ;
-
         showMenu(workers);
     }
 }
