@@ -32,7 +32,7 @@ public class Main {
         }
         catch (final Exception e)
         {
-            System.out.print(e.getMessage());
+            //System.out.print(e.getMessage());
         }
     }
     static String[] days = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница"};
@@ -163,7 +163,7 @@ public class Main {
                                 mynum = "";
                             }
                         }
-                        if (i == line.length())dArr[arrPos] = Integer.parseInt(mynum);
+                        if (i == line.length()-1)dArr[arrPos] = Integer.parseInt(mynum);
                     }
                 }
                 WorkshopBuilder WB = new WorkshopBuilder(name, wname, dArr);
